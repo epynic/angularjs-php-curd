@@ -1,0 +1,27 @@
+	<div class="row">
+
+	<h1> Customers </h1>
+
+	<div class="customers">
+		<input class="form-control" placeholder="Search Customer" ng-model="searchCustomer">
+		<hr>
+		<table class="table">
+		  	<thead>
+				<th ng-click="doSort('customerName')">Customer Name&nbsp;</th>
+				<th ng-click="doSort('email')">Email&nbsp;</th>
+				<th ng-click="doSort('country')">Country&nbsp;</th>
+				<th>Action&nbsp;</th>
+			</thead>
+	        <tbody>
+	            <tr ng-repeat="customer in customers | filter:searchCustomer | orderBy:sortBy:reverse">
+	                <td>{{customer.customerName}}</td>
+	                <td>{{customer.email}}</td>
+	                <td>{{customer.country}}</td>
+	                <td><a href="#/edit-customer/{{customer.id}}" class="btn">&nbsp;<i class="glyphicon glyphicon-edit"></i> Edit Customer</a> <a ref="#" ng-click='deleteCustomer(customer.id)' class="btn">Delete</a></td>
+	            </tr>
+
+	        </tbody>
+		</table>		
+	</div>
+
+</div>
